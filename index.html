@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Training</title>
+    <style>
+
+        .reset_button {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: black;
+            color: aliceblue;
+        }
+
+        .grid_container {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-row-gap: 50px;
+            grid-column-gap: 20px;
+        }
+
+        .invoice_type {
+            grid-column: 2/10;
+            grid-row:1/2;
+        }
+
+        .flight, .all_inclusive, .cruise, .tour  {
+            grid-column: 3/9;
+            grid-row:2/3;
+        }
+
+        .invoice_type, .flight, .all_inclusive, .cruise, .tour{
+            display: flex;
+            justify-content: center;
+        }
+
+        .invoice_type > div {
+            width: 150px;
+            height: 120px;
+            margin: 25px;
+            border-radius: 10%;
+            color: aliceblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .flight > div, .all_inclusive > div {
+            width: 150px;
+            height: 120px;
+            margin: 25px;
+            border-radius: 10%;
+            color: aliceblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+
+        .select_flight {
+            background-color: #FF5733;           
+        }
+
+        .select_all_inclusive {
+            background-color: #FFB22F;
+        }
+
+        .select_cruise {
+            background-color: #00CCEE;
+        }
+
+        .select_tour {
+            background-color: #D702E4;
+        }
+
+        .flight {
+            display: none;
+        }
+
+        .domestic_flight {
+            background-color: #E74C3C ;
+        }
+
+        .trans_border_flight {
+            background-color: #CB4335;
+        }
+
+        .international_flight {
+            background-color: #B03A2E;
+        }
+
+        
+        .all_inclusive {
+            display: none;
+        }
+
+        .mexico_ai {
+            background-color: #F39C12;
+        }
+
+        .dominica_ai {
+            background-color: #E67E22;
+        }
+
+        .cuba_ai {
+            background-color: #DC7633;
+        }
+
+        .other_ai {
+            background-color: #D35400;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="reset_button">
+        RESET
+    </div>
+    <div class="grid_container">
+        <div class="invoice_type">
+            <div class="select_flight">Flight</div>
+            <div class="select_all_inclusive">All Inclusive</div>
+            <div class="select_cruise">Cruise</div>
+            <div class="select_tour">Tour Package</div>
+        </div>
+        
+        <div class="flight">
+            <div class="domestic_flight">Domestic</div>
+            <div class="trans_border_flight">Transborder (the US)</div>
+            <div class="international_flight">International</div>
+        </div>
+
+        <div class="all_inclusive">
+            <div class="mexico_ai">Mexico</div>
+            <div class="dominica_ai">Dominican Rep.</div>
+            <div class="cuba_ai">Cuba</div>
+            <div class="other_ai">Others</div>
+        </div>
+
+        <div class="cruise">
+            <div class="norwegian_cruise">Norwegian Cruises</div>
+            <div class="royal_cruise">Royal Caribbean Cruises</div>
+            <div class="celebrity_cruise">Celebrity Cruises</div>
+            <div class="other_cruise">Others</div>
+        </div>
+
+        <div class="tour">
+            <div class="tour_north_america">Canada & the US</div>
+            <div class="tour_latin_america">Latin America</div>
+            <div class="customized_asia">Asia</div>
+            <div class="customized_europe">Europe/div>
+            <div class="customized_africa">Africa</div>
+            <div class="customized_other">Others</div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $('.reset_button' ).click(function() {
+                location.reload();
+            });
+
+            $('.select_flight' ).click(function() {
+                $('.flight').css( "display", "flex" );
+                $('.select_all_inclusive').css( "visibility", "hidden" );
+                $('.select_cruise').css( "visibility", "hidden" );
+                $('.select_tour').css( "visibility", "hidden" );
+            });
+
+            $('.select_all_inclusive' ).click(function() {
+                $('.all_inclusive').css( "display", "flex" );
+                $('.select_flight').css( "visibility", "hidden" );
+                $('.select_cruise').css( "visibility", "hidden" );
+                $('.select_tour').css( "visibility", "hidden" );
+            });
+
+        });
+
+
+
+    </script>
+
+
+</body>
+</html>
