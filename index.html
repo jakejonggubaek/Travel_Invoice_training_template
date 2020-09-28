@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select invoice type</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     
     <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
 
         .reset_button {
             position: absolute;
@@ -29,22 +33,22 @@
         }
 
         .invoice_type {
-            grid-column: 2/10;
+            grid-column: 1/10;
             grid-row:1/2;
         }
 
         .flight, .all_inclusive, .cruise, .tour  {
-            grid-column: 3/9;
+            grid-column: 2/9;
             grid-row:2/3;
         }
 
         .tour {
-            grid-column: 2/10;
+            grid-column: 1/10;
             grid-row:2/3;
         }
 
         .domestic, .mexico, .dr {
-            grid-column: 3/9;
+            grid-column: 2/9;
             grid-row:3/4;
         }
 
@@ -328,6 +332,18 @@
             background-color: #1A5276;
         }
 
+        .invoice_type > .question {
+            color: black;
+        }
+
+        .flight > .question2, .all_inclusive > .question2 , .cruise > .question2, .tour > .question2  {
+            color: black;
+        }
+
+        .domestic > .question3, .transborder > .question3, .international > .question3, .mexico > .question3, .dr > .question3, .cuba > .question3, .cruise_area > .question3 {
+            color: black;
+        }
+
 
     </style>
 </head>
@@ -337,6 +353,7 @@
     </div>
     <div class="grid_container">
         <div class="invoice_type">
+            <div class="question">What do your clients want to book?</div>
             <div class="select_flight">Flight</div>
             <div class="select_all_inclusive">All Inclusive</div>
             <div class="select_cruise">Cruise</div>
@@ -344,19 +361,22 @@
         </div>
         
         <div class="flight">
+            <div class="question2">What is the type of flight?</div>
             <div class="domestic_flight">Domestic</div>
             <div class="trans_border_flight">Transborder (the US)</div>
             <div class="international_flight">International</div>
         </div>
 
         <div class="all_inclusive">
+            <div class="question2">What country do they want to visit?</div>
             <div class="mexico_ai">Mexico</div>
             <div class="dominica_ai">Dominican Rep.</div>
             <div class="cuba_ai">Cuba</div>
-            <div class="other_ai">Others</div>
+            <div id="selector" class="other_ai" data-value="All Inclusive_Other Country_Other">Others</div>
         </div>
 
         <div class="cruise">
+            <div class="question2">What cruise lines are they taking?</div>
             <div class="norwegian_cruise cruise_a">Norwegian Cruises</div>
             <div class="royal_cruise cruise_a">Royal Caribbean Cruises</div>
             <div class="celebrity_cruise cruise_a">Celebrity Cruises</div>
@@ -364,6 +384,7 @@
         </div>
 
         <div class="tour">
+            <div class="question2">What area do they want to travel?</div>
             <div id="selector" class="tour_north_america" data-value="Tour Package_Canada/the US">Canada & the US</div>
             <div id="selector" class="tour_latin_america" data-value="Tour Package_Latin America">Latin America</div>
             <div id="selector" class="tour_asia" data-value="Tour Package_Asia">Asia</div>
@@ -373,13 +394,15 @@
         </div>
 
         <div class="domestic">
+            <div class="question3">What airlines do they want to take?</div>
             <div  id="selector" class="air_canada" data-value="Flight_Domestic_Air Canada">Air Canada</div>
             <div  id="selector" class="westjet" data-value="Flight_Domestic_Westjet">Westjet</div>
             <div  id="selector" class="transat" data-value="Flight_Domestic_Air Transat">Air Transat</div>
-            <div  id="selector" class="domestic_others" data-value="Flight_Domestic_other">Europe</div>
+            <div  id="selector" class="domestic_others" data-value="Flight_Domestic_other">Others</div>
         </div>
 
         <div class="transborder">
+            <div class="question3">What airlines do they want to take?</div>
             <div  id="selector"  class="air_canada_trans" data-value="Flight_Transborder_Air Canada">Air Canada</div>
             <div  id="selector"  class="westjet_trans" data-value="Flight_Transborder_Westjet">Westjet</div>
             <div  id="selector"  class="delta" data-value="Flight_Transborder_Delta Airlines">Delta Airlines</div>
@@ -389,6 +412,7 @@
         </div>
 
         <div class="international">
+            <div class="question3">What airlines do they want to take?</div>
             <div  id="selector" class="star_alliance" data-value="Flight_International_Star Alliance"><span>Star Alliance</span><button onclick="" class="search_flight1"><i class="fas fa-search"></i></button></div>
             <div  id="selector" class="sky_team" data-value="Flight_International_Sky team"><span>Sky team</span><button class="search_flight2"><i class="fas fa-search"></i></button></div>
             <div  id="selector" class="one_world" data-value="Flight_International_One World"><span>One World</span><button class="search_flight3"><i class="fas fa-search"></i></button></div>
@@ -396,6 +420,7 @@
         </div>
 
         <div class="mexico">
+            <div class="question3">What area do they want to stay?</div>
             <div id="selector" class="cun" data-value="All Inclusive_Mexico_Cancun">Cancun</div>
             <div id="selector" class="rmy" data-value="All Inclusive_Mexico_Riviera maya">Riviera maya</div>
             <div id="selector" class="pvr" data-value="All Inclusive_Mexico_Puerto Vallarta">Puerto Vallarta</div>
@@ -403,6 +428,7 @@
         </div>
 
         <div class="dr">
+            <div class="question3">What area do they want to stay?</div>
             <div id="selector" class="puj" data-value="All Inclusive_Dominican Republic_Punta Cana">Punta Cana</div>
             <div id="selector" class="pop" data-value="All Inclusive_Dominican Republic_Puerto Plata">Puerto Plata</div>
             <div id="selector" class="romana" data-value="All Inclusive_Dominican Republic_La Romana">La Romana</div>
@@ -410,6 +436,7 @@
         </div>
 
         <div class="cuba">
+            <div class="question3">What area do they want to stay?</div>
             <div id="selector" class="vra" data-value="All Inclusive_Cuba_Varadero">Varadero</div>
             <div id="selector" class="hav" data-value="All Inclusive_Cuba_Havana">Havana</div>
             <div id="selector" class="ccc" data-value="All Inclusive_Cuba_Cayo Coco">Cayo Coco</div>
@@ -418,6 +445,7 @@
         </div>
 
         <div class="cruise_area">
+            <div class="question3">What area do they want to travel?</div>
             <div id="selector" class="caribbean" data-value="Cruise_Caribbean">Caribbean</div>
             <div id="selector" class="med" data-value="Cruise_Mediterranean">Mediterranean</div>
             <div id="selector" class="asia" data-value="Cruise_Asia">Asia</div>
@@ -439,13 +467,17 @@
             });
 
             let selectedValue;
-            let selecteArray = [];
+            let selectArray = [];
+            let selectedType1;
+            let selectedType2;
+            let selectedType3;
 
             $('.select_flight' ).click(function() {
                 $('.flight').css( "display", "flex" );
                 $('.select_all_inclusive').css( "visibility", "hidden" );
                 $('.select_cruise').css( "visibility", "hidden" );
                 $('.select_tour').css( "visibility", "hidden" );
+                $('.question').css( "visibility", "hidden" );
             });
 
             $('.select_all_inclusive' ).click(function() {
@@ -453,6 +485,7 @@
                 $('.select_flight').css( "visibility", "hidden" );
                 $('.select_cruise').css( "visibility", "hidden" );
                 $('.select_tour').css( "visibility", "hidden" );
+                $('.question').css( "visibility", "hidden" );
             });
 
             $('.select_cruise' ).click(function() {
@@ -460,6 +493,7 @@
                 $('.select_flight').css( "visibility", "hidden" );
                 $('.select_all_inclusive').css( "visibility", "hidden" );
                 $('.select_tour').css( "visibility", "hidden" );
+                $('.question').css( "visibility", "hidden" );
             });
 
             $('.select_tour' ).click(function() {
@@ -467,24 +501,28 @@
                 $('.select_flight').css( "visibility", "hidden" );
                 $('.select_all_inclusive').css( "visibility", "hidden" );
                 $('.select_cruise').css( "visibility", "hidden" );
+                $('.question').css( "visibility", "hidden" );
             });
 
             $('.domestic_flight' ).click(function() {
                 $('.domestic').css( "display", "flex" );
                 $('.trans_border_flight').css( "visibility", "hidden" );
                 $('.international_flight').css( "visibility", "hidden" );
+                $('.question2').css( "visibility", "hidden" );
             });
 
             $('.trans_border_flight' ).click(function() {
                 $('.transborder').css( "display", "flex" );
                 $('.domestic_flight').css( "visibility", "hidden" );
                 $('.international_flight').css( "visibility", "hidden" );
+                $('.question2').css( "visibility", "hidden" );
             });
 
             $('.international_flight' ).click(function() {
                 $('.international').css( "display", "flex" );
                 $('.domestic_flight').css( "visibility", "hidden" );
                 $('.trans_border_flight').css( "visibility", "hidden" );
+                $('.question2').css( "visibility", "hidden" );
             });
 
             $('.search_flight1').click(function(){
@@ -504,6 +542,7 @@
                 $('.dominica_ai').css( "visibility", "hidden" );
                 $('.cuba_ai').css( "visibility", "hidden" );
                 $('.other_ai').css( "visibility", "hidden" );
+                $('.question2').css( "visibility", "hidden" );
             });
 
             $('.dominica_ai' ).click(function() {
@@ -511,6 +550,7 @@
                 $('.mexico_ai').css( "visibility", "hidden" );
                 $('.cuba_ai').css( "visibility", "hidden" );
                 $('.other_ai').css( "visibility", "hidden" );
+                $('.question2').css( "visibility", "hidden" );
             });
 
             $('.cuba_ai' ).click(function() {
@@ -518,27 +558,28 @@
                 $('.mexico_ai').css( "visibility", "hidden" );
                 $('.dominica_ai').css( "visibility", "hidden" );
                 $('.other_ai').css( "visibility", "hidden" );
-            });
-
-            $('.cuba_ai' ).click(function() {
-                $('.cuba').css( "display", "flex" );
-                $('.mexico_ai').css( "visibility", "hidden" );
-                $('.dominica_ai').css( "visibility", "hidden" );
-                $('.other_ai').css( "visibility", "hidden" );
+                $('.question2').css( "visibility", "hidden" );
             });
 
             $('.cruise_a' ).click(function() {
                 $('.cruise_area').css( "display", "flex" );
                 $('.cruise_a').css( "visibility", "hidden" );
                 $(this).css( "visibility", "visible" );
+                $('.question2').css( "visibility", "hidden" );
             });
 
             $(document).on('click', '#selector', function() {
                 selectedValue = $(this).data("value");
-                selecteArray = selectedValue.split("_");
-                sessionStorage.setItem("selecteArray", JSON.stringify(selecteArray));
+                console.log(selectedValue);
+                selectArray = selectedValue.split("_");
+                selectedType1 = selectArray[0];
+                selectedType2 = selectArray[1];
+                selectedType3 = selectArray[2];
+                sessionStorage.setItem("selectedType1", JSON.stringify(selectedType1));
+                sessionStorage.setItem("selectedType2", JSON.stringify(selectedType2));
+                sessionStorage.setItem("selectedType3", JSON.stringify(selectedType3));
                 setTimeout(function(){
-                    location.href="invoice.html";
+                    location.href="info.html";
                 }, 1000)
             });
 
